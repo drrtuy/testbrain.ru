@@ -154,7 +154,13 @@ form p {
     color: #b41010;
 }
 
+.cell-act.cell-green {
+    color: #04B431;
+}
 
+.cell-act.cell-blue {
+    color: #013ADF;
+}
 
 .cell-act.cell-black.cell-bg {
     background-color: #191919;
@@ -165,6 +171,17 @@ form p {
     background-color: #b41010;
     color: #ccc;
 }
+
+.cell-act.cell-green.cell-bg {
+    background-color: #04B431;
+    color: #ccc;
+}
+
+.cell-act.cell-blue.cell-bg {
+    background-color: #013ADF;
+    color: #ccc;
+}
+
 .cell-black.cell-bg {
     background-color: #B9B9B9;
     color: #ccc;

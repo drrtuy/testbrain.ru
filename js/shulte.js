@@ -25,6 +25,9 @@ function makeMap (map) {
     return map;
 }
 
+//var map = makeMap([]);
+
+/*
 var map = [
     [1, 0],
     [2, 0],
@@ -76,6 +79,8 @@ var map = [
     [23, 1],
     [24, 1]
 ];
+*/
+
 var base = 60;
 var clocktimer, dateObj, dh, dm, ds, ms;
 var readout = '';
@@ -199,59 +204,47 @@ function initScene() {
     scene.empty();
     enableSettings();
     map = makeMap([]);
-    var key, elem;
+    var cols = {'black': 0, 'red': 1, 'green': 2, 'blue': 3};
+    var key, elem, num, col;
     for (key=0;key<map.length;key++) {
         elem = map[key];
-        var num = elem[0];
-        var col = elem[1];
-        console.log(elem);
-        //console.log('col'+' '+col+' num '+num);
-        //var val = map[key];
-        var cols = {'black': 0, 'red': 1, 'green': 2, 'blue': 3};
+        num = elem[0];
+        col = elem[1];        
         if (col == cols.black) {
             scene.append('<div class="cell cell-black" val="' + num + '">' + num + '</div>')
         } else if (col == cols.red) {
-            scene.append('<div class="cell cell-red"val="' + num + '">' + num + '</div>')
+            scene.append('<div class="cell cell-red" val="' + num + '">' + num + '</div>')
         } else if (col == cols.green) {
-            scene.append('<div class="cell cell-green"val="' + num + '">' + num + '</div>')
+            scene.append('<div class="cell cell-green" val="' + num + '">' + num + '</div>')
         } else if (col == cols.blue) {
-            scene.append('<div class="cell cell-blue"val="' + num + '">' + num + '</div>')
+            scene.append('<div class="cell cell-blue" val="' + num + '">' + num + '</div>')
         } 
     }
     scene.append('<div class="clr"></div>')
 }
-/*
-function initScene() {
-    scene.empty();
-    enableSettings();
-    map = makeMap([]);
-    for (var key in map) {
-        var num = key[0]
-        var col = key[1];
-        var val = map[key];
-        if (val[1] == 0) {
-            scene.append('<div class="cell cell-black" val="' + val[0] + '">' + val[0] + '</div>')
-        } else if{ (val[1] == 0)
-            scene.append('<div class="cell cell-red"val="' + val[0] + '">' + val[0] + '</div>')
-        }
-    }
-    scene.append('<div class="clr"></div>')
-}
-*/
+
 function fillScene(next, rand) {
     scene.empty();
     if (rand) {
-        map = ArrayShuffle(map)
+        map = ArrayShuffle(makeMap([]))
     }
     cellbg = $("#colorbg").is(":checked");
-    for (var key in map) {
-        var val = map[key];
+    var cols = {'black': 0, 'red': 1, 'green': 2, 'blue': 3};
+    var key, elem, num, col;
+    for (key in map) {
+        elem = map[key];
+        num = elem[0];
+        col = elem[1];        
         if (!cellbg) {
-            if (val[1] == 0) {
-                scene.append('<div class="cell cell-act cell-black" val="' + val[0] + '">' + val[0] + '</div>')
-            } else {
-                scene.append('<div class="cell cell-act cell-red"val="' + val[0] + '">' + val[0] + '</div>')
-            }
+            if (col == cols.black) {
+                scene.append('<div class="cell cell-act cell-black" val="' + num + '">' + num + '</div>')
+            } else if (col == cols.red) {
+                scene.append('<div class="cell cell-act cell-red" val="' + num + '">' + num + '</div>')
+            } else if (col == cols.green) {
+                scene.append('<div class="cell cell-act cell-green" val="' + num + '">' + num + '</div>')
+            } else if (col == cols.blue) {
+                scene.append('<div class="cell cell-act cell-blue" val="' + num + '">' + num + '</div>')
+            } 
         } else {
             if (val[1] == 0) {
                 scene.append('<div class="cell cell-bg cell-act cell-black" val="' + val[0] + '">' + val[0] + '</div>')
@@ -263,6 +256,8 @@ function fillScene(next, rand) {
     }
     scene.append('<div class="clr"></div>')
 }
+
+
 function endAlert(end) {
     findTIME();
     $("#alert").show();
@@ -352,9 +347,7 @@ function stopTesting() {
     clearALL();
     deactivateCells();
     $("#start-btn").text("Начать тестирование");
-    $("#test-control").undelegate("#start-btn", 'click').delegate("#start-btn", 'click', function () {
-        startTesting()
-    });
+    $("#test-control").undelegate("#start-btn", 'click').delegate("#start-btn", 'click', startTesting);
     audio.pause();
     audio.currentTime = 0
 }
@@ -362,9 +355,7 @@ $(function () {
     initScene();
     clearALL();
     $("input.test-set").removeAttr("checked");
-    $("#test-control").undelegate("#start-btn", 'click').delegate("#start-btn", 'click', function () {
-        startTesting()
-    });
+    $("#test-control").undelegate("#start-btn", 'click').delegate("#start-btn", 'click', startTesting);
     $(function () {
         $("#colorbg").change(function () {
             if ($(this).is(':checked')) $(".cell").addClass('cell-bg');
