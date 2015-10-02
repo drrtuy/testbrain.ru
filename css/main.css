@@ -1,0 +1,374 @@
+/* Override some defaults */
+/* page layout */
+html, body {
+    background-color: #eee;
+}
+body {
+    padding-top: 40px;
+    overflow: scroll;
+}
+
+h1 {
+    text-shadow: 0 1px 0 #FFFFFF, 0 -1px 3px #BEBEBE;
+}
+p {
+    text-indent: 25px;
+}
+
+.container {
+    width: 980px;
+}
+
+.content {
+    background-color: #fff;
+    padding: 20px;
+    /* negative indent the amount of the padding to maintain the grid system */
+    -webkit-border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6px 6px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    width: 1238px;
+}
+/* Page header tweaks */
+.page-header {
+    background-color: #f5f5f5;
+    padding: 20px 20px 10px;
+    margin: -20px -20px 20px;
+}
+
+#sidebar {
+    border-left: 1px solid #eee ;
+    margin-left: 1px;
+}
+
+.footer{ margin-top: 20px; background-color:#eee;min-width:980px;text-shadow:0 1px 0 #fff;border-top:1px solid #e5e5e5;-webkit-box-shadow:inset 0 5px 15px rgba(0,0,0,.025);-moz-box-shadow:inset 0 5px 15px rgba(0,0,0,.025);box-shadow:inset 0 5px 15px rgba(0,0,0,.025);padding:30px 0;}
+.footer .container {padding: 0 90px;}
+.footer p{color:#555; text-indent: 0;}
+
+.table-striped tbody tr:nth-child(odd):hover td, .table-striped tbody tr:hover td {
+    background-color: #f5f5f5;
+}
+
+.clr {
+    clear: both;
+}
+
+i.dopinf {
+    font-size: 12px;
+    display: block;
+    margin: 10px 0;
+}
+
+/* override some  bootstrap */
+.table td, .table th { padding: 10px; }
+.form-actions {margin: 0;}
+.nav-list {margin: 10px 0; padding: 0 8px;}
+.control-group {padding-left: 0; margin: 10px;}
+#page {width: 978px; padding: 0 10px;}
+
+/* fancybox style */
+.fbset .content {
+    height: 359px;
+}
+.fbin .content {
+    min-height: 298px;
+}
+.fbin form {
+    padding: 20px;
+}
+
+.fbin .help-inline {
+}
+
+form p {
+    text-indent: 0;
+}
+
+/*************************** Shulte ***************************************/
+#scene {
+    margin: 10px;
+    
+}
+
+#test-control {
+    width: 210px;
+    margin: 15px 8px;
+}
+
+#sidebar i {
+    color: #000;
+}
+
+.cell {
+    width: 90px;
+    height: 90px;
+    float: left;
+    margin: 2px;
+    text-align: center;
+    font: bold 40px sans-serif;
+    line-height: 100px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.3);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.3);
+    box-shadow: 0 1px 2px rgba(0,0,0,.3);
+}
+
+.cell-act {
+    cursor: pointer;
+}
+
+.cell-act:hover {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.7);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.7);
+    box-shadow: 0 1px 2px rgba(0,0,0,.7);
+}
+
+.cell-black {
+    color: #B9B9B9;
+}
+
+.cell-red {
+    color: #E9B8B8;
+}
+
+.cell-green {
+    color: #04B431;
+}
+
+.cell-blue {
+    color: #013ADF;
+}
+
+.cell-act.cell-black {
+    color: #191919;
+}
+
+.cell-act.cell-red {
+    color: #b41010;
+}
+
+
+
+.cell-act.cell-black.cell-bg {
+    background-color: #191919;
+    color: #ccc;
+}
+
+.cell-act.cell-red.cell-bg {
+    background-color: #b41010;
+    color: #ccc;
+}
+.cell-black.cell-bg {
+    background-color: #B9B9B9;
+    color: #ccc;
+}
+
+.cell-red.cell-bg {
+    background-color: #E9B8B8;
+    color: #ccc;
+}
+.cell-act.cell-bg.cell-black:hover {
+    background-color: #232323;
+}
+
+.cell-act.cell-bg.cell-red:hover {
+    background-color: #9e0e0e;    
+}
+
+#start-btn {
+ width: 180px;    
+}
+
+#timer {
+    border: 0;
+    width: 200px;
+    height: 60px;
+    font: bold 34px sans-serif;
+    color: #191919;
+    text-align: center;
+    background-color: #FCFAFC;
+}
+
+.timer-red {
+    color: #191919;
+}
+
+#alert {
+    font: 18px sans-serif;
+    text-align: center;
+    display: none;
+    margin-top: 10px;
+}
+
+.test-setting {
+    margin: 5px;
+    cursor: pointer;
+    display: block;
+}
+
+label.test-setting input {
+    float: left;
+}
+
+label.test-setting span {
+    display: block;
+    margin-left: 28px;
+}
+
+#test-settings {
+    padding: 4px;
+    margin-bottom: 10px;
+}
+
+.text-red {
+    color: #9e0e0e;
+    font-weight: bold;
+}
+
+.text-green {
+     color: #00C617;
+     font-weight: bold;
+}
+
+.text-black {
+    color: #000;
+    font-weight: bold;
+}
+
+.text-gray {
+    color: #ccc;
+}
+
+.text-lightgray {
+    color: #eee;
+}
+
+.ben-question {
+    padding: 25px;
+}
+
+.ben-question img {
+    margin: 6px;
+    float: left;
+}
+
+.affix {
+    top: 60px;
+}
+
+a.brand {
+    background-image: url("http://testbrain.ru/images/brain.png");
+    background-repeat: no-repeat;
+    color: #222;
+}
+
+a.brand:hover {
+     background-position: 0 -41px;
+}
+
+form {
+    background: #FCFAFC;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+#vk-share {
+    width: 160px;
+    margin: 0 auto;
+}
+
+.span9 {
+    width: 728px;
+}
+
+.span3 {
+    width: 190px;
+}
+
+.nav-list > li > a, .nav-list .nav-header {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+/***************************  Memory ***************************************/
+.mcell {
+    width: 75px;
+    height: 60px;
+    float: left;
+    font-size: 40px;
+    margin: 3px;
+    text-align: center;
+    line-height: 60px;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.7);
+    color: #fff;
+    border: 1px solid rgba(0,0,0,.3)
+}
+
+
+.cell-act {
+    
+}
+
+
+.cell-done {
+    color: #395E3F;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 2px rgba(0,123,37,.7);
+    cursor:  default;
+}
+
+
+.mcell-act:hover {
+    border: 1px solid rgba(0,0,0,.5);
+    box-shadow: 0 1px 2px rgba(0,0,0,.9);
+    cursor: pointer;
+}
+
+.mcell.clicked {
+  color: #333;
+}
+
+#scene.lvl1 {
+    width: 333px;
+    margin: 0 auto;
+}
+
+#scene.lvl2 {
+    width: 500px;
+    margin: 0 auto;
+}
+
+
+/***************************  testLamp ***************************************/
+canvas {
+    /*border: 1px solid #555;*/
+}
+
+
+
+/*************************** Add ***************************************/
+.add-main {
+    width: 700px;
+    margin: 20px auto;
+}
+
+.add-sidebar {
+    width: 200px;
+    margin: 20px -20px 0 20px;
+}
+
+.add-col2 {
+    margin: 20px 0 20px -16px;
+}
