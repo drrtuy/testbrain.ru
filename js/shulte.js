@@ -2,6 +2,14 @@ var scene = $('#scene');
 var audio = document.getElementById("audio");
 var vkShareDescr = '';
 
+$('#size').change(function(){
+    $('#size').attr('value', $('#size').val())
+    size = $('#size').val();
+    var w = size * 100;
+    $('#page').css('width', w.toString()+'px');
+    doInit();
+});
+
 function ArrayShuffle(a) {
     var d, c, b = a.length;
     while (b) {
@@ -13,9 +21,10 @@ function ArrayShuffle(a) {
     return a
 }
 
-function makeMap (map) {
+function makeMap (size) {
     var colors = 4;
-    var numbs = 25;
+    var numbs = size*size / colors;
+    var map = [];
     var i,it;
     for (i=0;i<colors;i++){
         for (it=1;it<=numbs;it++){
@@ -24,62 +33,6 @@ function makeMap (map) {
     }
     return map;
 }
-
-//var map = makeMap([]);
-
-/*
-var map = [
-    [1, 0],
-    [2, 0],
-    [3, 0],
-    [4, 0],
-    [5, 0],
-    [6, 0],
-    [7, 0],
-    [8, 0],
-    [9, 0],
-    [10, 0],
-    [11, 0],
-    [12, 0],
-    [13, 0],
-    [14, 0],
-    [15, 0],
-    [16, 0],
-    [17, 0],
-    [18, 0],
-    [19, 0],
-    [20, 0],
-    [21, 0],
-    [22, 0],
-    [23, 0],
-    [24, 0],
-    [25, 0],
-    [1, 1],
-    [2, 1],
-    [3, 1],
-    [4, 1],
-    [5, 1],
-    [6, 1],
-    [7, 1],
-    [8, 1],
-    [9, 1],
-    [10, 1],
-    [11, 1],
-    [12, 1],
-    [13, 1],
-    [14, 1],
-    [15, 1],
-    [16, 1],
-    [17, 1],
-    [18, 1],
-    [19, 1],
-    [20, 1],
-    [21, 1],
-    [22, 1],
-    [23, 1],
-    [24, 1]
-];
-*/
 
 var base = 60;
 var clocktimer, dateObj, dh, dm, ds, ms;
@@ -93,6 +46,7 @@ var ms = 0;
 var show = true;
 var init = 0;
 var ii = 0;
+var size = 10;
 
 function clearALL() {
     clearTimeout(clocktimer);
@@ -203,7 +157,7 @@ function setNext(cell) {
 function initScene() {
     scene.empty();
     enableSettings();
-    map = makeMap([]);
+    map = makeMap(size);
     var cols = {'black': 0, 'red': 1, 'green': 2, 'blue': 3};
     var key, elem, num, col;
     for (key=0;key<map.length;key++) {
@@ -226,7 +180,7 @@ function initScene() {
 function fillScene(next, rand) {
     scene.empty();
     if (rand) {
-        map = ArrayShuffle(makeMap([]))
+        map = ArrayShuffle(makeMap(size))
     }
     cellbg = $("#colorbg").is(":checked");
     var cols = {'black': 0, 'red': 1, 'green': 2, 'blue': 3};
@@ -351,7 +305,8 @@ function stopTesting() {
     audio.pause();
     audio.currentTime = 0
 }
-$(function () {
+
+function doInit() {
     initScene();
     clearALL();
     $("input.test-set").removeAttr("checked");
@@ -362,4 +317,6 @@ $(function () {
             else $(".cell").removeClass('cell-bg')
         })
     })
-});
+}
+
+$(doInit);
